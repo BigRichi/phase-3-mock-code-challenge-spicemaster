@@ -43,6 +43,12 @@ function renderIngredients() {
                 if (ingredient.spiceblendId == spiceDetail.dataset.id){
                     const ingLi = document.createElement('li')
                     ingLi.textContent = ingredient.name
+                    ingLi.dataset.id = ingredient.id
+
+                    const delBtn = document.createElement('button')
+                    delBtn.textContent = "X"
+
+                    ingLi.append(delBtn)
                     ingredientUl.append(ingLi)
                 }
             })
@@ -142,5 +148,16 @@ spiceBar.addEventListener('click', function(event){
                 renderIngredients()
             })
             // debugger
+    }
+})
+
+//---------- Ingredients Ul Event Listenier [Delete Button] ----------//
+ingredientUl.addEventListener('click', function(event){
+    if (event.target.matches('button')) {
+        const parentLi = event.target.closest('li')
+        fetch(`${ingredientsUrl}/${parentLi.dataset.id}`, {
+            method: 'DELETE'
+        })
+        parentLi.remove()
     }
 })
