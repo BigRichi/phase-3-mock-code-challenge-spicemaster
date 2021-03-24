@@ -81,7 +81,7 @@ titleForm.addEventListener('submit', function(event){
 addIngredientForm.addEventListener('submit', function(event){
     event.preventDefault()
     const name = addIngredientForm.name.value 
-    const spiceblendId = addIngredientForm.dataset.id
+    const spiceblendId = Number(addIngredientForm.dataset.id)
 
     fetch(ingredientsUrl, {
         method: 'POST',

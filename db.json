@@ -108,29 +108,14 @@
       "id": 17
     },
     {
-      "name": "garlic",
-      "spiceblendId": "1",
-      "id": 18
+      "name": "rice",
+      "spiceblendId": 1,
+      "id": 27
     },
     {
-      "name": "Chicken",
-      "spiceblendId": "3",
-      "id": 19
-    },
-    {
-      "name": "pork",
-      "spiceblendId": "3",
-      "id": 20
-    },
-    {
-      "name": "rose",
-      "spiceblendId": "1",
-      "id": 21
-    },
-    {
-      "name": "Hello",
-      "spiceblendId": "1",
-      "id": 22
+      "name": "chicken",
+      "spiceblendId": 1,
+      "id": 28
     }
   ]
 }
