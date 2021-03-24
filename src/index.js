@@ -33,6 +33,19 @@ function renderFirstSpice() {
 }
 
 renderFirstSpice()
+//---------- Create Ingredient ----------//
+function createIngredient(ingredient) {
+    const ingLi = document.createElement('li')
+    ingLi.textContent = ingredient.name
+    ingLi.dataset.id = ingredient.id
+
+    const delBtn = document.createElement('button')
+    delBtn.textContent = "X"
+
+    ingLi.append(delBtn)
+    ingredientUl.append(ingLi)
+}
+
 //---------- Rendering Ingredient ----------//
 function renderIngredients() {
     fetch(ingredientsUrl)
@@ -41,15 +54,7 @@ function renderIngredients() {
             ingredientArr.forEach(ingredient=> {
                 // debugger
                 if (ingredient.spiceblendId == spiceDetail.dataset.id){
-                    const ingLi = document.createElement('li')
-                    ingLi.textContent = ingredient.name
-                    ingLi.dataset.id = ingredient.id
-
-                    const delBtn = document.createElement('button')
-                    delBtn.textContent = "X"
-
-                    ingLi.append(delBtn)
-                    ingredientUl.append(ingLi)
+                    createIngredient(ingredient)
                 }
             })
         })
@@ -99,9 +104,7 @@ addIngredientForm.addEventListener('submit', function(event){
     })
     .then(resp => resp.json())
     .then(ingredient =>{
-        const ingLi = document.createElement('li')
-        ingLi.textContent = ingredient.name
-        ingredientUl.append(ingLi)
+        createIngredient(ingredient)
     })
     addIngredientForm.reset()
 })
